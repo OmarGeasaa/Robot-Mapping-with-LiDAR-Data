@@ -8,7 +8,7 @@ Using CSV LiDAR scans containing (x, y, z, intensity) data and corresponding tra
 the notebook reconstructs the robot's surrounding environment into a world coordinate frame.
 
 ## Tools
-- Python, NumPy, Matplotlib
+- Julia
 - Jupyter Notebook
 - CSV LiDAR dataset
 
