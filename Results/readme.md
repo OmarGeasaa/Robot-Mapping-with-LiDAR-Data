@@ -3,7 +3,7 @@
 **By Omar Ahmed Geasa**
 *Mechatronics Engineering, Tanta University*
 *Omargeasaa@gmail.com*
-
+$\sqrt{3x-1}+(1+x)^2$
 ---
 ### **Step 1.A: Translation**
 
