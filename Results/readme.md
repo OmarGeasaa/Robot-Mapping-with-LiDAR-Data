@@ -30,8 +30,11 @@ An **affine transformation** is a geometric operation that preserves lines and p
 $f(x) = y = Ax + t$
 
 ### Homogeneous Coordinates
-While rotation and scaling can be represented by a matrix multiplication, translation requires an addition. **Homogeneous coordinates** are a mathematical trick that allows all affine transformations, including translation, to be performed in a single matrix multiplication. A 3D point $(x, y, z)$ becomes $(x, y, z, 1)$. This allows the transformation to be written as: $$
-=\begin{bmatrix}
+While rotation and scaling can be represented by a matrix multiplication, translation requires an addition. **Homogeneous coordinates** are a mathematical trick that allows all affine transformations, including translation, to be performed in a single matrix multiplication. A 3D point $(x, y, z)$ becomes $(x, y, z, 1)$. This allows the transformation to be written as:
+
+
+$$
+\begin{bmatrix}
 x' \\
 y' \\
 z' \\
