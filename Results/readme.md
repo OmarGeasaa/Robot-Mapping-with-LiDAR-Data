@@ -59,7 +59,7 @@ The project starts by illustrating 2D affine transformations (translation, rotat
 #### Translation
 Each point of the square is shifted by -0.5 units along both axes to center it.
 $$
-\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} -0.5 \\ -0.5 \end{bmatrix}
+ $\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} + \begin{bmatrix} -0.5 \\ -0.5 \end{bmatrix} $.
 $$
 
 #### Rotation
