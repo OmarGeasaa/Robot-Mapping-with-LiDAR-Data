@@ -19,6 +19,7 @@ Many autonomous systems rely on perception sensors such as LiDAR to localize, ma
 This project demonstrates how local sensor data can be transformed into a unified global map by processing large-scale data using matrix operations, specifically expressing translation and rotation in homogeneous coordinates.
 
 
+
 ---
 
 ## II - Background
@@ -74,11 +75,13 @@ $$
 $$
 
 
+
 ### Step 2: 2D Point Cloud Correction
 Next, an affine transformation is used to correct a distorted 2D point cloud image stored in `question_image.csv`.
 $$
 T = \begin{bmatrix} -0.09239 & 0.038268 & 300 \\ -0.38268 & -0.923879 & 165 \\ 0 & 0 & 1 \end{bmatrix}
 $$
+
 
 
 ### Step 3: 3D LiDAR Mapping
@@ -90,6 +93,7 @@ T = \begin{bmatrix} R_{3 \times 3} & t_{3 \times 1} \\ 0_{1 \times 3} & 1 \end{b
 $$
 
 By iterating from time = 9s to 13s, each point cloud is transformed and appended to a global map, fusing the scans into a single, coherent 3D representation of the environment.
+
 
 
 ---
