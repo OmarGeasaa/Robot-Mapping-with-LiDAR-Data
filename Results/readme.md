@@ -57,7 +57,91 @@ This matrix is applied to LiDAR data to transform scans from the sensor’s loca
 
 ## III - Methodology
 
-This section outlines the methodology used to transform LiDAR data from the robotautonomously estimate the robot’s position and orientation in real time[cite: 337].
+This section outlines the methodology used to transform LiDAR data from the robot’s local coordinate frame into the world coordinate frame. It is divided into three main parts:
+1.  2D geometric transformations
+2.  2D point cloud correction
+3.  3D LiDAR mapping and visualization
 
-## [cite_start]Acknowledgement [cite: 338]
-[cite_start]This project is based on materials from the ROB 101: Computational Linear Algebra course at the University of Michigan[cite: 339]. [cite_start]Original concept and dataset by Prof. Jessy Grizzle, Prof. Maani Ghaffari, and T.ribhi Kathuria[cite: 340]. [cite_start]The Implementation, code, and documentation here are my own[cite: 341].
+### Step I: 2D Transformations and Homogeneous Coordinates
+
+#### Step 1.A: Translation
+The first transformation applied is translation, which moves points by a constant offset ($t_x$, $t_y$). The shape is shifted by -0.5 units along both axes.
+$$
+\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} -0.5 \\ -0.5 \end{bmatrix}
+$$
+
+#### Step 1.B: Translation Using Homogeneous Coordinates
+Using homogeneous coordinates, translation can be expressed as a matrix multiplication.
+$$
+T = \begin{bmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1 \end{bmatrix}
+$$
+
+#### Step 1.C: Rotation in Homogeneous Coordinates
+Next, a rotation is applied counterclockwise by an angle $\theta$. For this step, the square is rotated by 45° ($\pi/4$ radians).
+$$
+\begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+$$
+
+#### Step 1.D: Scaling
+Scaling adjusts the size along the x- and y-axes by factors $S_x$ and $S_y$. In this case, $S_x = 1.5$ and $S_y = 0.5$.
+$$
+\begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \begin{bmatrix} S_x & 0 & 0 \\ 0 & S_y & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
+$$
+
+#### Step 1.E: Combining Transformations: Affine Transformation
+All transformations can be combined into a single composite matrix by multiplying them in order.
+$$
+T_{composite} = T_{scale} \times T_{rotate} \times T_{translate}
+$$
+
+![Figure 2: Demonstration of 2D geometric transformations on a square.](path/to/your/figure2.png)
+
+### Step 2 – Working with 2D Point Clouds
+This step corrects a distorted 2D point cloud. The data is a $3 \times N$ matrix where the first two rows are coordinates and the third is intensity. The correction is applied using a given affine transformation matrix:
+$$
+T = \begin{bmatrix} -0.09239 & 0.038268 & 300 \\ -0.38268 & -0.923879 & 165 \\ 0 & 0 & 1 \end{bmatrix}
+$$
+
+![Figure 3: Comparison of 2D point clouds before and after applying affine transformations.](path/to/your/figure3.png)
+
+### Step 3 – 3D LiDAR Mapping and Visualization
+This step extends the concepts to 3D LiDAR data from the Cassie robot. Each scan is transformed from the moving sensor frame to a fixed world frame. The `data_parser(id)` function provides the point cloud data, intensity, and the necessary transformation components ($R$ and $t$) for each time interval.
+
+The transformation for each frame is constructed as:
+$$
+T = \begin{bmatrix} R_{3 \times 3} & t_{3 \times 1} \\ 0_{1 \times 3} & 1 \end{bmatrix}
+$$
+
+#### Part A – Single Frame
+First, a single frame of raw LiDAR data is visualized. Then, the transformation is applied to correctly align the point cloud with the robot's pose in the world frame.
+
+![Figure 4: Raw LiDAR data before processing.](path/to/your/figure4.png)
+![Figure 5: Corrected LiDAR point cloud for a single frame.](path/to/your/figure5.png)
+
+#### Part B – Building the Map (Fusing Scans)
+To build a global map, multiple LiDAR scans (from time 9s to 13s) are fused. Each scan is transformed using its unique $R$ and $t$ matrices and then appended to a global map, creating a dense, unified 3D point cloud.
+
+#### Animation
+An animation is generated to visualize the mapping process, showing the robot's movement (white dot) as the map is built incrementally.
+
+![Figure 6: Animated visualization (GIF) showing Cassie’s trajectory and the accumulated LiDAR map.](path/to/your/figure6.gif)
+
+---
+
+## IV - Results & Discussion
+
+The affine transformations successfully corrected the misalignment in the raw LiDAR scans. Initially, plotting the raw data resulted in overlapping and displaced point clouds due to the robot's motion. By applying the correct homogeneous transformation matrix for each frame, the data was accurately projected into a common world coordinate frame. The final fused point cloud produced a coherent and detailed 3D map of the environment.
+
+### Assumptions and Limitations
+This project assumes that the robot’s true position and orientation (which form the $R$ and $t$ components) at each frame are known and accurate. In real-world applications, these values must be estimated using algorithms like SLAM (Simultaneous Localization and Mapping). This project focuses solely on the "mapping" part, assuming the "localization" is already solved.
+
+---
+
+## V - Conclusion
+
+This project successfully demonstrated how affine and homogeneous transformations are applied to real LiDAR data to reconstruct a 3D map from local sensor measurements. The results confirm that properly designed transformation matrices allow for the consistent alignment of LiDAR scans across multiple frames. While key parameters were provided, the process mirrors the core mathematical pipeline used in real-world robotic perception systems.
+
+---
+
+## Acknowledgement
+This project is based on materials from the **ROB 101: Computational Linear Algebra** course at the University of Michigan. Original concept and dataset by Prof. Jessy Grizzle, Prof. Maani Ghaffari, and T.ribhi Kathuria. The implementation, code, and documentation presented here are my own.
