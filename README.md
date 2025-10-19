@@ -27,7 +27,7 @@ course at the University of Michigan.
 
 This project is based on materials from the **ROB 101: Computational Linear Algebra** course at the University of Michigan.
 
-The original course content, including the project description and dataset, is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](http://creativecommons.org/licenses/by-nc/4.0/). Original concept and dataset by Prof. Jessy Grizzle, Prof. Maani Ghaffari, and T.ribhi Kathuria.
+The original course content, including the project description and dataset, is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](http://creativecommons.org/licenses/by-nc/4.0/). Original concept and dataset by Prof. Jessy Grizzle, Prof. Maani Ghaffari, and Tribhi Kathuria.
 
 The code in this repository, as a derivative work of the course's original source code, is licensed under the **GNU General Public License v3.0**. The full license text is available in the `LICENSE` file.
 
