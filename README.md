@@ -23,6 +23,12 @@ Omar Geasa
 This project is inspired by and based on materials from the
 [ROB 101: Computational Linear Algebra](https://github.com/michiganrobotics/rob101/tree/main)
 course at the University of Michigan.  
-Original concept and dataset by Prof. Jessy Grizzle, Prof. Maani Ghaffari, and Tribhi Kathuria.  
-Implementation, code, and documentation here are my own.
+## Acknowledgement & Licensing
 
+This project is based on materials from the **ROB 101: Computational Linear Algebra** course at the University of Michigan.
+
+The original course content, including the project description and dataset, is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](http://creativecommons.org/licenses/by-nc/4.0/). Original concept and dataset by Prof. Jessy Grizzle, Prof. Maani Ghaffari, and T.ribhi Kathuria.
+
+The code in this repository, as a derivative work of the course's original source code, is licensed under the **GNU General Public License v3.0**. The full license text is available in the `LICENSE` file.
+
+The implementation, code modifications, and documentation presented here are my own.
