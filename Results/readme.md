@@ -3,8 +3,8 @@
 **By Omar Ahmed Geasa**
 *Mechatronics Engineering, Tanta University*
 *Omargeasaa@gmail.com*
+
 ---
-### **Step 1.A: Translation**
 
 ## Abstract
 
@@ -33,12 +33,8 @@ $f(x) = y = Ax + t$
 While rotation and scaling are linear, translation is not. **Homogeneous coordinates** are a clever trick to express all affine transformations, including translation, within a single matrix multiplication. A 2D point $[x,y]^T$ becomes $[x,y,1]^T$, and a 3D point $[x,y,z]^T$ becomes $[x,y,z,1]^T$. This allows the transformation to be written as:
 
 $$
-M = \begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}
+\begin{bmatrix} x' \\ y' \\ z' \\ 1 \end{bmatrix} = \begin{bmatrix} A & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
 $$
-
 
 ### Application in Robotics
 In robotics, this is essential for relating sensor frames to a world frame. For LiDAR mapping, the **homogeneous transformation matrix** takes this form:
@@ -62,7 +58,9 @@ The project starts by illustrating 2D affine transformations (translation, rotat
 
 #### Translation
 Each point of the square is shifted by -0.5 units along both axes to center it.
-$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix}$.
+$$
+\begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} -0.5 \\ -0.5 \end{bmatrix}
+$$
 
 #### Rotation
 The square is rotated counterclockwise by 45° ($\pi/4$ radians).
@@ -113,6 +111,10 @@ This project assumes that the robot’s true position and orientation (which pro
 
 This project successfully demonstrated how affine and homogeneous transformations are applied to real LiDAR data to reconstruct a 3D map from local sensor measurements. The results confirm that properly designed transformation matrices allow for the consistent alignment of LiDAR scans across multiple frames, which is the mathematical backbone of robotic mapping.
 
+---
+
+## Acknowledgement
+This project is based on materials from the **ROB 101: Computational Linear Algebra** course at the University of Michigan. Original concept and dataset by Prof. Jessy Grizzle, Prof. Maani Ghaffari, and T.ribhi Kathuria. The implementation, code, and documentation presented here are my own.
 ---
 
 ## Acknowledgement
