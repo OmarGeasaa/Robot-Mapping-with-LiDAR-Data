@@ -5,6 +5,13 @@
 *Omargeasaa@gmail.com*
 
 ---
+### **Step 1.A: Translation**
+
+The first transformation applied to the square is **translation**. Each point of the square is shifted by 0.5 units along both the x-axis and y-axis to center the shape around the origin.
+Mathematically, this operation is represented as:
+ $\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix}$.
+
+Here is $\begin{bmatrix} t_x \\ t_y \end{bmatrix} = \begin{bmatrix} -0.5 \\ -0.5 \end{bmatrix}$. The translated points are stored in an array named `points2` for subsequent transformations.
 
 ## Abstract
 
