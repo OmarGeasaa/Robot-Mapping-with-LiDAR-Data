@@ -1,7 +1,7 @@
 # Robot Mapping with LiDAR Data
 
-**By Omar Ahmed Geasa**
-*Mechatronics Engineering, Tanta University*
+**By Omar Ahmed Geasa**  
+*Mechatronics Engineering, Tanta University*  
 *Omargeasaa@gmail.com*
 
 ---
