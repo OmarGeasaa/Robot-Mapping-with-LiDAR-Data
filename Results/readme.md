@@ -32,9 +32,8 @@ $f(x) = y = Ax + t$
 ### Homogeneous Coordinates
 While rotation and scaling are linear, translation is not. **Homogeneous coordinates** are a clever trick to express all affine transformations, including translation, within a single matrix multiplication. A 2D point $[x,y]^T$ becomes $[x,y,1]^T$, and a 3D point $[x,y,z]^T$ becomes $[x,y,z,1]^T$. This allows the transformation to be written as:
 
-$$
-\begin{bmatrix} x' \\ y' \\ z' \\ 1 \end{bmatrix} = \begin{bmatrix} A & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
-$$
+$\begin{bmatrix} x' \\ y' \\ z' \\ 1 \end{bmatrix} = \begin{bmatrix} A & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}$
+
 
 ### Application in Robotics
 In robotics, this is essential for relating sensor frames to a world frame. For LiDAR mapping, the **homogeneous transformation matrix** takes this form:
