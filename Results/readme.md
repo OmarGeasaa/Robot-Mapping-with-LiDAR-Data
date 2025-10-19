@@ -10,7 +10,7 @@
 
 This mini-project demonstrates how to manipulate raw LiDAR data using point clouds to construct a visual map of the environment. The work focuses on applying affine transformations from linear algebra to convert data from the robot’s local coordinate frame into a world reference frame. This project shows how affine transformations enable accurate alignment of multiple LiDAR scans for real-time robotic mapping. The dataset used in this work was collected by the Cassie bipedal robot at the University of Michigan.
 
----
+
 
 ## I - Introduction
 
@@ -18,9 +18,6 @@ Many autonomous systems rely on perception sensors such as LiDAR to localize, ma
 
 This project demonstrates how local sensor data can be transformed into a unified global map by processing large-scale data using matrix operations, specifically expressing translation and rotation in homogeneous coordinates.
 
-
-
----
 
 ## II - Background
 
