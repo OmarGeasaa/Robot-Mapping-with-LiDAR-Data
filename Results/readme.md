@@ -3,7 +3,6 @@
 **By Omar Ahmed Geasa**
 *Mechatronics Engineering, Tanta University*
 *Omargeasaa@gmail.com*
-$\sqrt{3x-1}+(1+x)^2$
 ---
 ### **Step 1.A: Translation**
 
@@ -32,8 +31,12 @@ $f(x) = y = Ax + t$
 
 ### Homogeneous Coordinates
 While rotation and scaling are linear, translation is not. **Homogeneous coordinates** are a clever trick to express all affine transformations, including translation, within a single matrix multiplication. A 2D point $[x,y]^T$ becomes $[x,y,1]^T$, and a 3D point $[x,y,z]^T$ becomes $[x,y,z,1]^T$. This allows the transformation to be written as:
-
-$\begin{bmatrix} x' \\ y' \\ z' \\ 1 \end{bmatrix} = \begin{bmatrix} A & t \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}$
+$$
+M = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+$$
 
 
 ### Application in Robotics
