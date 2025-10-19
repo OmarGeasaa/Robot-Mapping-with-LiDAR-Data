@@ -7,12 +7,6 @@
 ---
 ### **Step 1.A: Translation**
 
-The first transformation applied to the square is **translation**. Each point of the square is shifted by 0.5 units along both the x-axis and y-axis to center the shape around the origin.
-Mathematically, this operation is represented as:
- $\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix}$.
-
-Here is $\begin{bmatrix} t_x \\ t_y \end{bmatrix} = \begin{bmatrix} -0.5 \\ -0.5 \end{bmatrix}$. The translated points are stored in an array named `points2` for subsequent transformations.
-
 ## Abstract
 
 This mini-project demonstrates how to manipulate raw LiDAR data using point clouds to construct a visual map of the environment. The work focuses on applying affine transformations from linear algebra to convert data from the robot’s local coordinate frame into a world reference frame. This project shows how affine transformations enable accurate alignment of multiple LiDAR scans for real-time robotic mapping. The dataset used in this work was collected by the Cassie bipedal robot at the University of Michigan.
